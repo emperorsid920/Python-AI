@@ -1,0 +1,34 @@
+# Disease Progression Prediction Project
+
+## Overview
+This project demonstrates a machine learning approach to predicting disease progression using synthetic healthcare data and TensorFlow.
+
+## Project Structure
+- `main.py`: Contains data generation and main execution logic
+- `ml_model.py`: Defines the neural network model and training process
+
+## Key Features
+- Synthetic data generation for healthcare indicators
+- Neural network regression model
+- Feature normalization
+- Early stopping to prevent overfitting
+
+## Dependencies
+- TensorFlow
+- NumPy
+
+## How to Run
+```bash
+python main.py
+```
+
+## Model Details
+The model predicts a disease progression score (0-10) based on:
+- Age
+- Blood Pressure
+- Cholesterol Level
+- Blood Sugar
+- BMI
+
+## Note
+This is a simplified example for demonstration purposes.
