@@ -1,0 +1,62 @@
+# MNIST Digit Generation GAN
+
+## Project Overview
+This project implements a Generative Adversarial Network (GAN) for generating synthetic MNIST handwritten digits using TensorFlow and Keras.
+
+## Key Features
+- Generates synthetic handwritten digit images
+- Uses a generator-discriminator architecture
+- Trained on the MNIST dataset
+- Visualizes generated images at different training epochs
+
+## Project Structure
+- `GenAI.py`: Main script containing GAN implementation
+  - Generator model
+  - Discriminator model
+  - Training loop
+  - Image generation and visualization
+
+## Technical Details
+### Model Architecture
+- **Generator**: 
+  - Input: Random noise vector (100 dimensions)
+  - Layers: Dense, BatchNormalization, Conv2DTranspose
+  - Output: 28x28x1 synthetic digit image
+
+- **Discriminator**:
+  - Input: 28x28x1 image
+  - Layers: Convolutional, Dropout, Flatten
+  - Output: Binary classification (real or fake)
+
+### Training Parameters
+- Epochs: 100
+- Batch Size: 64
+- Optimizers: Adam (learning rate: 1e-4)
+- Loss Function: Binary Cross-Entropy
+
+## Dependencies
+- TensorFlow
+- NumPy
+- Matplotlib
+
+## How to Run
+```bash
+python GenAI.py
+```
+
+## Output
+- Generates and saves synthetic digit images
+- Prints generator and discriminator losses every 10 epochs
+- Saves image outputs as PNG files
+
+## Visualization
+Images are generated and saved at specified epochs, showing the progression of the GAN's learning process.
+
+## Limitations
+- Trained on first 1500 MNIST images
+- Limited computational resources may affect generation quality
+
+## Future Improvements
+- Increase training dataset size
+- Experiment with hyperparameters
+- Implement more advanced GAN architectures
