@@ -1,0 +1,73 @@
+# IMDb Movie Review Sentiment Analysis
+
+## Project Overview
+A deep learning project for sentiment classification of movie reviews using an LSTM neural network, based on the IMDb dataset.
+
+## Project Structure
+- `Review.py`: Main script containing:
+  - Data preprocessing
+  - Model architecture
+  - Training and evaluation
+  - Visualization of training metrics
+
+## Technical Details
+
+### Data Preprocessing
+- Dataset: IMDb Movie Reviews
+- Tokenization: 
+  - Top 5000 words preserved
+  - Sequences padded to 100 tokens
+- Train-Test Split: 80% training, 20% testing
+
+### Model Architecture
+- Embedding Layer: 
+  - Input dimension: 5000
+  - Output dimension: 64
+- LSTM Layer: 64 units
+- Output Layer: Binary sigmoid classifier
+
+### Training Parameters
+- Optimizer: Adam
+- Loss Function: Binary Cross-Entropy
+- Epochs: 10
+- Batch Size: 64
+
+## Dependencies
+- TensorFlow
+- Keras
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-learn
+
+## How to Run
+1. Ensure you have the required dependencies installed
+2. Place `IMDb_Reviews.csv` in the same directory
+3. Run the script:
+   ```bash
+   python Review.py
+   ```
+
+## Outputs
+- Training and validation accuracy plot
+- Training and validation loss plot
+- Final test set performance metrics
+
+## Model Performance Visualization
+- Accuracy and loss curves for both training and validation sets
+- Helps in understanding model learning progress
+
+## Potential Improvements
+- Experiment with different model architectures
+- Try larger embedding dimensions
+- Increase number of training epochs
+- Implement more advanced text preprocessing
+- Use pre-trained word embeddings
+
+## Limitations
+- Limited to top 5000 words
+- Fixed sequence length of 100 tokens
+- Binary sentiment classification
+
+## Notes
+Ensure you have the IMDb dataset (`IMDb_Reviews.csv`) before running the script.
