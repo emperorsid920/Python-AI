@@ -1,0 +1,112 @@
+# CIFAR-10 Image Classification Web Application
+
+## Project Overview
+A deep learning project for classifying images across 10 categories using a Convolutional Neural Network (CNN) with a Flask web interface for interactive predictions.
+
+## Project Structure
+- `Classify.py`: Machine learning model training script
+  - Uses CIFAR-10 dataset
+  - Implements advanced CNN architecture
+  - Includes data augmentation and preprocessing
+- `main.py`: Flask web application for model deployment
+  - Handles image upload and prediction
+- `index.html`: Frontend for image classification
+
+## Technical Details
+
+### Model Architecture
+- Convolutional Neural Network (CNN)
+- Layers:
+  - Multiple Convolutional layers
+  - Batch Normalization
+  - MaxPooling
+  - Dropout for regularization
+- Final layer: 10-class softmax classifier
+
+### Key Features
+- Data Augmentation
+  - Rotation
+  - Width/Height shifts
+  - Shear and zoom transformations
+  - Horizontal flipping
+- Learning Rate Scheduling
+- Early Stopping
+
+### Classification Categories
+1. Airplane
+2. Automobile
+3. Bird
+4. Cat
+5. Deer
+6. Dog
+7. Frog
+8. Horse
+9. Ship
+10. Truck
+
+## Dependencies
+- TensorFlow
+- Keras
+- NumPy
+- Matplotlib
+- Flask
+- Scikit-learn
+- Werkzeug
+
+## Installation
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   pip install tensorflow flask numpy matplotlib scikit-learn
+   ```
+
+## How to Run
+### Training the Model
+```bash
+python Classify.py
+```
+- Trains the CNN on CIFAR-10 dataset
+- Saves the model as `cifar10_model_augmented.h5`
+- Generates training performance visualizations
+
+### Web Application
+```bash
+python main.py
+```
+- Starts Flask development server
+- Open browser and navigate to `http://localhost:5000`
+
+## Web Interface Features
+- Upload image (jpg, jpeg, png)
+- Predict image class
+- Display predicted class and confidence
+
+## Model Performance
+- Uses advanced techniques to improve accuracy
+- Data augmentation to prevent overfitting
+- Learning rate scheduling
+- Early stopping
+
+## Potential Improvements
+- Implement more advanced data augmentation
+- Experiment with transfer learning
+- Add more complex CNN architectures
+- Improve web interface design
+
+## Limitations
+- Trained on CIFAR-10 dataset
+- Limited to 10 predefined categories
+- Performance depends on image similarity to training data
+
+## Troubleshooting
+- Ensure all dependencies are installed
+- Verify image format and size
+- Check model path in `main.py`
+
+## License
+[Specify your license here]
+
+## Acknowledgments
+- CIFAR-10 dataset
+- TensorFlow and Keras teams
+- Flask framework
