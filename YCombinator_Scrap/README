@@ -1,0 +1,166 @@
+# Y Combinator Scraper AI Agent
+
+An intelligent web scraping tool that collects information about Y Combinator-backed startups and generates project ideas using both AI and rule-based approaches.
+
+## Overview
+
+This AI agent scrapes company data from Y Combinator's website and uses Claude AI (with a rule-based fallback mechanism) to suggest project ideas related to each company's business domain. The tool combines web scraping capabilities with AI-powered content generation to create an autonomous system for collecting and analyzing startup information.
+
+## Features
+
+- **Intelligent Web Scraping**: Extracts company information from Y Combinator including:
+  - Company names
+  - Descriptions
+  - Tags/categories
+  - Founding years
+
+- **AI Integration**: Uses Claude API by Anthropic to generate tailored project ideas based on company profiles
+
+- **Autonomous Operation**: 
+  - Handles various website structures and changes
+  - Automatically falls back to rule-based generation when AI API is unavailable
+  - Gracefully manages errors and network issues
+  - Extracts information even from incomplete or poorly structured pages
+
+- **Smart Data Processing**: 
+  - Multiple extraction methods with fallback mechanisms
+  - Intelligent tag inference from descriptions when tags aren't explicitly available
+  - Company name normalization and cleanup
+
+- **Secure API Handling**: 
+  - Reads API keys from external files rather than hardcoding
+  - Compatible with GitHub security scanning
+  - Configurable through command line or config files
+
+- **Flexible Output**: 
+  - Exports data to CSV for spreadsheet analysis
+  - Also generates JSON for programmatic use
+  - Creates backup files if primary saves fail
+
+## Requirements
+
+- Python 3.6+
+- Required packages:
+  - requests
+  - beautifulsoup4
+  - anthropic (optional - for AI-powered project suggestions)
+
+## Installation
+
+1. Clone or download this repository
+2. Install required packages:
+
+```bash
+pip install requests beautifulsoup4 anthropic
+```
+
+3. (Optional) Get a Claude API key from Anthropic:
+   - Create an account at [console.anthropic.com](https://console.anthropic.com)
+   - Navigate to API Keys section
+   - Create a new API key
+   - Create a file named `api.txt` in the project directory
+   - Paste your API key as the first and only line in the file
+
+## Usage
+
+### Basic Usage
+
+```bash
+python yc-scraper-claude-secure.py
+```
+
+### Command Line Options
+
+```bash
+python yc-scraper-claude-secure.py --help
+```
+
+This will display available options:
+
+- `-n, --num`: Number of startups to scrape (default: 15)
+- `-o, --output`: Output CSV filename (default: yc_startups.csv)
+- `--claude-api-key`: Claude (Anthropic) API key for project suggestions
+- `--api-file`: File containing Claude API key (default: api.txt)
+
+### Examples
+
+Scrape 20 startups and save to custom filename:
+```bash
+python yc-scraper-claude-secure.py --num 20 --output yc_data.csv
+```
+
+Specify a different API key file:
+```bash
+python yc-scraper-claude-secure.py --api-file my_keys.txt
+```
+
+## How It Works
+
+1. **Setup & Configuration**:
+   - Loads API keys from file or command line
+   - Initializes Claude client if API key is available
+   - Configures HTTP headers for web requests
+
+2. **Data Collection**:
+   - Uses a curated list of YC company URLs
+   - Fetches each company page and parses the HTML
+   - Extracts company information using multiple selectors and methods
+   - Falls back to simpler extraction if primary methods fail
+
+3. **AI Integration**:
+   - For each company, constructs a prompt with company information
+   - Sends prompt to Claude API for project idea generation
+   - If API is unavailable or returns an error, falls back to rule-based generation
+   - Rule-based system analyzes company description and tags to suggest relevant ideas
+
+4. **Data Processing & Export**:
+   - Processes all collected data into a structured format
+   - Exports to CSV and JSON formats
+   - Implements backup saving mechanisms
+
+## Project Structure
+
+```
+.
+├── yc-scraper-claude-secure.py  # Main script
+├── api.txt                      # Claude API key file (not included in repo)
+├── yc_startups.csv              # Output CSV file (generated when run)
+├── yc_startups.json             # Output JSON file (generated when run)
+├── README.md                    # This documentation
+└── .gitignore                   # Git ignore file (should include api.txt)
+```
+
+## Security Notes
+
+- The script is designed to read API keys from external files rather than including them in the code
+- Make sure to add your `api.txt` file to `.gitignore` to prevent accidentally pushing it to GitHub
+- This approach passes GitHub's security scanning for credentials
+
+## Troubleshooting
+
+- **404 Errors**: Some YC company pages may return 404 errors if they've been moved or renamed. The script will handle these gracefully.
+- **API Key Issues**: If your Claude API key doesn't work, check your Anthropic account for billing or credit issues.
+- **Rate Limiting**: If you receive rate limit errors, try reducing the number of companies scraped or increasing the delay between requests.
+
+## Limitations
+
+- The script uses a curated list of YC companies rather than dynamic discovery
+- Rule-based project ideas are more generic than AI-generated ones
+- Some company information may be incomplete if not available on their YC profile page
+
+## Future Improvements
+
+- Add dynamic company discovery from YC's company directory
+- Implement more advanced fallback mechanisms for extraction
+- Add more data sources for richer company profiles
+- Include historical data collection for tracking company changes over time
+
+## License
+
+MIT
+
+## Acknowledgements
+
+- Built using BeautifulSoup for HTML parsing
+- Integrates with Claude AI by Anthropic for intelligent project suggestions
+- Inspired by the Y Combinator startup ecosystem
