@@ -6,7 +6,7 @@ Advanced Database Initialization & Configuration Script
 import os
 import sys
 import django
-from django.core.management import execute_from_command_line
+from django.core.management import call_command
 
 # Set up Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
@@ -27,8 +27,8 @@ def initialize_enterprise_database():
     # Step 1: Create database tables
     print("📊 Creating Advanced Database Schema...")
     try:
-        execute_from_command_line(['setup_database.py', 'makemigrations'])
-        execute_from_command_line(['setup_database.py', 'migrate'])
+        call_command('makemigrations', verbosity=1)
+        call_command('migrate', verbosity=1)
         print("   ✅ Database schema created successfully")
     except Exception as e:
         print(f"   ❌ Error creating schema: {e}")
