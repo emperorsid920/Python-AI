@@ -17,6 +17,9 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 
+# Custom User Model Configuration
+AUTH_USER_MODEL = 'user_management.AdvancedUser'
+
 # Application definition - Enterprise Modules
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -36,8 +39,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'expense_api',
     'user_management',
+    'expense_api',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

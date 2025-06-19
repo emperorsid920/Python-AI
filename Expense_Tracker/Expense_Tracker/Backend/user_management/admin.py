@@ -63,7 +63,7 @@ class ExpenseCategoryAdmin(admin.ModelAdmin):
     """
     Advanced Expense Category Management
     """
-    list_display = ['name', 'display_name', 'icon', 'color_preview']
+    list_display = ['name', 'display_name', 'icon', 'color_code', 'color_preview']
     list_editable = ['icon', 'color_code']
 
     def display_name(self, obj):

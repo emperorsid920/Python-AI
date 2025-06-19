@@ -7,12 +7,12 @@ import os
 import sys
 import django
 from django.core.management import execute_from_command_line
-from django.contrib.auth import get_user_model
 
 # Set up Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 django.setup()
 
+from django.contrib.auth import get_user_model
 from user_management.models import ExpenseCategory
 
 
@@ -26,21 +26,37 @@ def initialize_enterprise_database():
 
     # Step 1: Create database tables
     print("📊 Creating Advanced Database Schema...")
-    execute_from_command_line(['manage.py', 'makemigrations'])
-    execute_from_command_line(['manage.py', 'migrate'])
+    try:
+        execute_from_command_line(['setup_database.py', 'makemigrations'])
+        execute_from_command_line(['setup_database.py', 'migrate'])
+        print("   ✅ Database schema created successfully")
+    except Exception as e:
+        print(f"   ❌ Error creating schema: {e}")
+        return False
 
     # Step 2: Initialize expense categories
     print("🏷️ Configuring Expense Category Framework...")
-    setup_expense_categories()
+    try:
+        setup_expense_categories()
+        print("   ✅ Categories configured successfully")
+    except Exception as e:
+        print(f"   ❌ Error configuring categories: {e}")
+        return False
 
     # Step 3: Create superuser
     print("👤 Setting up Enterprise Admin Account...")
-    create_admin_user()
+    try:
+        create_admin_user()
+        print("   ✅ Admin account created successfully")
+    except Exception as e:
+        print(f"   ❌ Error creating admin: {e}")
+        return False
 
-    print("✅ Enterprise Database Setup Complete!")
+    print("\n✅ Enterprise Database Setup Complete!")
     print("🌐 Run: python main.py runserver")
     print("🔧 Admin: http://127.0.0.1:8000/admin/")
     print("📡 API: http://127.0.0.1:8000/api/")
+    return True
 
 
 def setup_expense_categories():
@@ -88,6 +104,8 @@ def setup_expense_categories():
         )
         if created:
             print(f"   ✓ Created category: {category.get_name_display()}")
+        else:
+            print(f"   ℹ️ Category already exists: {category.get_name_display()}")
 
 
 def create_admin_user():
@@ -110,4 +128,5 @@ def create_admin_user():
 
 
 if __name__ == '__main__':
-    initialize_enterprise_database()
+    success = initialize_enterprise_database()
+    sys.exit(0 if success else 1)

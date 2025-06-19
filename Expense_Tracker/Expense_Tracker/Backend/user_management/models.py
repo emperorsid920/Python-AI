@@ -47,6 +47,24 @@ class AdvancedUser(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
     is_premium = models.BooleanField(default=False)
 
+    # Fix reverse accessor conflicts
+    groups = models.ManyToManyField(
+        'auth.Group',
+        verbose_name='groups',
+        blank=True,
+        help_text='The groups this user belongs to.',
+        related_name='advanced_user_set',
+        related_query_name='advanced_user',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        verbose_name='user permissions',
+        blank=True,
+        help_text='Specific permissions for this user.',
+        related_name='advanced_user_set',
+        related_query_name='advanced_user',
+    )
+
     class Meta:
         db_table = 'advanced_users'
         verbose_name = 'Advanced User Profile'
@@ -59,10 +77,12 @@ class AdvancedUser(AbstractUser):
     def remaining_budget(self):
         """Calculate remaining monthly budget"""
         if self.monthly_income:
+            from django.utils import timezone
+            now = timezone.now()
             total_expenses = sum(
                 expense.amount for expense in self.expenses.filter(
-                    date__month=models.functions.Extract('date', 'month'),
-                    date__year=models.functions.Extract('date', 'year')
+                    date__month=now.month,
+                    date__year=now.year
                 )
             )
             return self.monthly_income - total_expenses

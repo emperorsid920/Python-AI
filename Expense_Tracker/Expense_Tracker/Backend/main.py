@@ -11,7 +11,7 @@ from django.conf import settings
 
 # Configure Django settings
 if not settings.configured:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'expense_backend.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 
 
 def initialize_application():
