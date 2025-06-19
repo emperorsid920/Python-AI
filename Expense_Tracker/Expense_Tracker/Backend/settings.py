@@ -82,10 +82,7 @@ WSGI_APPLICATION = 'expense_wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'expense_tracker_enterprise.db',
-        'OPTIONS': {
-            'timeout': 30,
-        }
+        'NAME': BASE_DIR / 'Backend' / 'expense_tracker_enterprise.db',
     }
 }
 
@@ -194,3 +191,5 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '2.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
 }
+
+print("ACTUAL DB FILE PATH:", DATABASES['default']['NAME'])

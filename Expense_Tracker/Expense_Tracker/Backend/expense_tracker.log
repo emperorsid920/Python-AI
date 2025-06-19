@@ -1,0 +1,108 @@
+INFO 2025-06-19 07:09:15,623 autoreload 4777 4538213888 Watching for file changes with StatReloader
+INFO 2025-06-19 07:10:09,737 basehttp 4777 123145583583232 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-06-19 07:10:10,038 basehttp 4777 123145583583232 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4188
+INFO 2025-06-19 07:10:10,168 basehttp 4777 123145617162240 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-06-19 07:10:10,176 basehttp 4777 123145650741248 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-06-19 07:10:10,179 basehttp 4777 123145633951744 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-06-19 07:10:10,179 basehttp 4777 123145600372736 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-06-19 07:10:10,180 basehttp 4777 123145583583232 "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+INFO 2025-06-19 07:10:10,181 basehttp 4777 123145667530752 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-06-19 07:10:10,188 basehttp 4777 123145617162240 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533
+WARNING 2025-06-19 07:10:10,585 log 4777 123145684320256 Not Found: /apple-touch-icon-precomposed.png
+WARNING 2025-06-19 07:10:10,587 basehttp 4777 123145684320256 "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3184
+WARNING 2025-06-19 07:10:10,606 log 4777 123145684320256 Not Found: /apple-touch-icon.png
+WARNING 2025-06-19 07:10:10,607 basehttp 4777 123145684320256 "GET /apple-touch-icon.png HTTP/1.1" 404 3148
+WARNING 2025-06-19 07:10:11,487 log 4777 123145583583232 Not Found: /favicon.ico
+WARNING 2025-06-19 07:10:11,487 basehttp 4777 123145583583232 "GET /favicon.ico HTTP/1.1" 404 3121
+ERROR 2025-06-19 07:10:59,282 log 4777 123145583583232 Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: advanced_users
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/contrib/admin/sites.py", line 441, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/views/generic/edit.py", line 152, in post
+    if form.is_valid():
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/forms/forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/forms/forms.py", line 196, in errors
+    self.full_clean()
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/forms/forms.py", line 434, in full_clean
+    self._clean_form()
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/forms/forms.py", line 455, in _clean_form
+    cleaned_data = self.clean()
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/contrib/auth/forms.py", line 250, in clean
+    self.user_cache = authenticate(
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/views/decorators/debug.py", line 42, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/contrib/auth/__init__.py", line 77, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/contrib/auth/backends.py", line 46, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/contrib/auth/base_user.py", line 54, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/models/query.py", line 633, in get
+    num = len(clone)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/sidkumar/.conda/envs/WebProject/lib/python3.9/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: advanced_users
+ERROR 2025-06-19 07:10:59,291 basehttp 4777 123145583583232 "POST /admin/login/?next=/admin/ HTTP/1.1" 500 240578
+INFO 2025-06-19 08:18:48,823 autoreload 5086 4495988224 Watching for file changes with StatReloader
+INFO 2025-06-19 08:20:00,772 basehttp 5086 123145475874816 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4349
+INFO 2025-06-19 08:20:15,797 basehttp 5086 123145475874816 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4349
+WARNING 2025-06-19 08:20:33,157 log 5086 123145475874816 Not Found: /
+WARNING 2025-06-19 08:20:33,158 basehttp 5086 123145475874816 "GET / HTTP/1.1" 404 3070
