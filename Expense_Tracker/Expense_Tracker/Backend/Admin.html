@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker API Tester</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .api-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .api-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .response {
+            margin-top: 20px;
+            padding: 20px;
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .token-display {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            word-break: break-all;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .status-success {
+            border-left: 5px solid #27ae60;
+        }
+
+        .status-error {
+            border-left: 5px solid #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Expense Tracker API Tester</h1>
+            <p>Enterprise-Grade Financial Management System</p>
+        </div>
+
+        <div class="content">
+            <!-- API Base URL Configuration -->
+            <div class="api-section">
+                <h2>⚙️ Configuration</h2>
+                <div class="form-group">
+                    <label for="baseUrl">API Base URL:</label>
+                    <input type="text" id="baseUrl" value="http://127.0.0.1:8000/api" placeholder="Enter API base URL">
+                </div>
+                <div id="tokenDisplay" class="token-display" style="display: none;">
+                    <strong>🔑 Access Token:</strong> <span id="currentToken"></span>
+                </div>
+            </div>
+
+            <div class="grid">
+                <!-- User Registration -->
+                <div class="api-section">
+                    <h2>👤 User Registration</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="regUsername">Username:</label>
+                            <input type="text" id="regUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regEmail">Email:</label>
+                            <input type="email" id="regEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regFirstName">First Name:</label>
+                            <input type="text" id="regFirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regLastName">Last Name:</label>
+                            <input type="text" id="regLastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPassword">Password:</label>
+                            <input type="password" id="regPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regPasswordConfirm">Confirm Password:</label>
+                            <input type="password" id="regPasswordConfirm" required>
+                        </div>
+                        <button type="submit">Register User</button>
+                    </form>
+                    <div id="registerResponse" class="response" style="display: none;"></div>
+                </div>
+
+                <!-- User Login -->
+                <div class="api-section">
+                    <h2>🔐 User Login</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginUsername">Username:</label>
+                            <input type="text" id="loginUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password:</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                    <div id="loginResponse" class="response" style="display: none;"></div>
+                </div>
+
+                <!-- Create Expense -->
+                <div class="api-section">
+                    <h2>💰 Create Expense</h2>
+                    <form id="expenseForm">
+                        <div class="form-group">
+                            <label for="expenseTitle">Title:</label>
+                            <input type="text" id="expenseTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expenseAmount">Amount:</label>
+                            <input type="number" id="expenseAmount" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expenseCategory">Category:</label>
+                            <select id="expenseCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="1">Food & Dining</option>
+                                <option value="2">Transportation</option>
+                                <option value="3">Entertainment</option>
+                                <option value="4">Shopping</option>
+                                <option value="5">Utilities</option>
+                                <option value="6">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="expenseDate">Date:</label>
+                            <input type="date" id="expenseDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expenseNotes">Notes:</label>
+                            <textarea id="expenseNotes" rows="3"></textarea>
+                        </div>
+                        <button type="submit">Create Expense</button>
+                    </form>
+                    <div id="expenseResponse" class="response" style="display: none;"></div>
+                </div>
+
+                <!-- Get Expenses -->
+                <div class="api-section">
+                    <h2>📊 Get Expenses</h2>
+                    <button onclick="getExpenses()">Fetch All Expenses</button>
+                    <div id="expensesResponse" class="response" style="display: none;"></div>
+                </div>
+
+                <!-- Analytics -->
+                <div class="api-section">
+                    <h2>📈 Analytics</h2>
+                    <button onclick="getAnalytics()">Get Expense Analytics</button>
+                    <div id="analyticsResponse" class="response" style="display: none;"></div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="api-section">
+                    <h2>👤 User Profile</h2>
+                    <button onclick="getUserProfile()">Get Profile</button>
+                    <div id="profileResponse" class="response" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentToken = '';
+
+        // Set today's date as default
+        document.getElementById('expenseDate').valueAsDate = new Date();
+
+        // Register User
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = {
+                username: document.getElementById('regUsername').value,
+                email: document.getElementById('regEmail').value,
+                first_name: document.getElementById('regFirstName').value,
+                last_name: document.getElementById('regLastName').value,
+                password: document.getElementById('regPassword').value,
+                password_confirm: document.getElementById('regPasswordConfirm').value
+            };
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/users/register/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                displayResponse('registerResponse', data, response.ok);
+
+                if (response.ok && data.access_token) {
+                    setToken(data.access_token);
+                }
+            } catch (error) {
+                displayResponse('registerResponse', { error: error.message }, false);
+            }
+        });
+
+        // Login User
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = {
+                username: document.getElementById('loginUsername').value,
+                password: document.getElementById('loginPassword').value
+            };
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/users/login/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                displayResponse('loginResponse', data, response.ok);
+
+                if (response.ok && data.access_token) {
+                    setToken(data.access_token);
+                }
+            } catch (error) {
+                displayResponse('loginResponse', { error: error.message }, false);
+            }
+        });
+
+        // Create Expense
+        document.getElementById('expenseForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!currentToken) {
+                alert('Please login first to create expenses');
+                return;
+            }
+
+            const formData = {
+                title: document.getElementById('expenseTitle').value,
+                amount: document.getElementById('expenseAmount').value,
+                category: document.getElementById('expenseCategory').value,
+                date: document.getElementById('expenseDate').value,
+                notes: document.getElementById('expenseNotes').value
+            };
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/expenses/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${currentToken}`
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                displayResponse('expenseResponse', data, response.ok);
+            } catch (error) {
+                displayResponse('expenseResponse', { error: error.message }, false);
+            }
+        });
+
+        // Get Expenses
+        async function getExpenses() {
+            if (!currentToken) {
+                alert('Please login first to view expenses');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/expenses/`, {
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`
+                    }
+                });
+
+                const data = await response.json();
+                displayResponse('expensesResponse', data, response.ok);
+            } catch (error) {
+                displayResponse('expensesResponse', { error: error.message }, false);
+            }
+        }
+
+        // Get Analytics
+        async function getAnalytics() {
+            if (!currentToken) {
+                alert('Please login first to view analytics');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/expenses/analytics/`, {
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`
+                    }
+                });
+
+                const data = await response.json();
+                displayResponse('analyticsResponse', data, response.ok);
+            } catch (error) {
+                displayResponse('analyticsResponse', { error: error.message }, false);
+            }
+        }
+
+        // Get User Profile
+        async function getUserProfile() {
+            if (!currentToken) {
+                alert('Please login first to view profile');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/users/profile/`, {
+                    headers: {
+                        'Authorization': `Bearer ${currentToken}`
+                    }
+                });
+
+                const data = await response.json();
+                displayResponse('profileResponse', data, response.ok);
+            } catch (error) {
+                displayResponse('profileResponse', { error: error.message }, false);
+            }
+        }
+
+        // Utility Functions
+        function getBaseUrl() {
+            return document.getElementById('baseUrl').value;
+        }
+
+        function setToken(token) {
+            currentToken = token;
+            document.getElementById('currentToken').textContent = token;
+            document.getElementById('tokenDisplay').style.display = 'block';
+        }
+
+        function displayResponse(elementId, data, isSuccess) {
+            const element = document.getElementById(elementId);
+            element.style.display = 'block';
+            element.className = `response ${isSuccess ? 'status-success' : 'status-error'}`;
+            element.textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</body>
+</html>

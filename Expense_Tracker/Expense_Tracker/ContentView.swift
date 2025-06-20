@@ -7,36 +7,27 @@
 
 import SwiftUI
 
-// MARK: - Main Content View
 struct ContentView: View {
-    @StateObject private var store = ExpenseStore()
-    
+    @State private var showLogin = true
+
     var body: some View {
-        TabView {
-            ExpenseListView()
-                .tabItem {
-                    Image(systemName: "list.bullet")
-                    Text("Expenses")
+        NavigationView {
+            VStack {
+                if showLogin {
+                    LoginView()
+                    Button("Don't have an account? Sign Up") {
+                        showLogin = false
+                    }
+                    .padding(.top)
+                } else {
+                    SignUpView()
+                    Button("Already have an account? Login") {
+                        showLogin = true
+                    }
+                    .padding(.top)
                 }
-            
-            AddExpenseView()
-                .tabItem {
-                    Image(systemName: "plus")
-                    Text("Add")
-                }
-            
-            BudgetView()
-                .tabItem {
-                    Image(systemName: "dollarsign.circle")
-                    Text("Budget")
-                }
-            
-            ReportView()
-                .tabItem {
-                    Image(systemName: "chart.bar")
-                    Text("Report")
-                }
+            }
+            .padding()
         }
-        .environmentObject(store)
     }
 }
