@@ -1,0 +1,97 @@
+🔧 Electronic Repair Shop Review Moderator
+This project provides a Streamlit-based web application designed to help electronic repair shops efficiently manage and moderate customer reviews. It leverages the powerful Gemini API for advanced AI-powered sentiment analysis, spam detection, and inappropriate content flagging, alongside robust rule-based fallbacks.
+✨ Features
+CSV Upload: Easily upload customer reviews from a CSV file.
+Data Validation: Ensures uploaded CSVs have the correct structure and data types.
+AI-Powered Analysis:
+Sentiment Analysis: Determines if a review is positive, negative, or neutral.
+Spam Detection: Identifies reviews with suspicious promotional language or patterns.
+Inappropriate Content Flagging: Flags reviews containing offensive or undesirable language.
+Confidence Scoring: Provides a confidence level for AI analysis.
+Rule-Based Fallback: Automatically switches to rule-based analysis if the AI service is unavailable or confidence is low.
+Database Integration: Stores raw reviews and analysis results in a SQLite database for persistence.
+Dashboard: Provides an overview of total reviews, processed reviews, flagged reviews, and sentiment distribution.
+Flagged Reviews Section: Easily view and filter reviews identified as spam or inappropriate.
+Statistics & Insights: Visualizes rating distribution, sentiment distribution, reviews over time, and identifies suspicious reviewer patterns.
+Clear Data: Option to clear all stored reviews and analysis results for a fresh start.
+🚀 Technologies Used
+Python 3.10+
+Streamlit: For building the interactive web application.
+Google Gemini API: For advanced AI content moderation.
+Pandas: For data manipulation and CSV processing.
+Plotly Express: For interactive data visualizations.
+SQLite3: For local database storage.
+Numpy: For numerical operations.
+Requests: For making HTTP requests (used by google-generativeai internally).
+⚙️ Setup Instructions
+Follow these steps to get the project running on your local machine.
+1. Clone the Repository (if applicable)
+If this project is hosted on a repository, clone it:
+git clone <repository-url>
+cd <repository-name>
+
+
+Otherwise, ensure all project files (app.py, config.py, content_moderator.py, database.py, utils.py, reviews.csv) are in the same directory.
+2. Set up Python Environment
+It's highly recommended to use a virtual environment (like Conda or venv) to manage dependencies.
+# Example using Conda:
+conda create --name my_review_env python=3.10
+conda activate my_review_env
+
+
+3. Install Dependencies
+With your Python environment active, install all required Python packages:
+pip install streamlit pandas plotly requests google-generativeai numpy
+
+
+4. Get Your Gemini API Key
+Go to Google AI Studio and sign in with your Google account.
+Generate a new API key from the dashboard.
+Copy this API key immediately.
+5. Set Your Gemini API Key as an Environment Variable
+IMPORTANT: You must set this environment variable in the terminal session before running the Streamlit app.
+export GOOGLE_API_KEY='YOUR_ACTUAL_GEMINI_API_KEY_HERE'
+
+
+Replace 'YOUR_ACTUAL_GEMINI_API_KEY_HERE' with the API key you copied from Google AI Studio.
+Ensure you use straight single quotes (') or double quotes ("), not smart/curly quotes.
+For persistent access across terminal sessions, you can add this line to your shell's configuration file (e.g., ~/.zshrc, ~/.bashrc, or ~/.bash_profile).
+6. Initial Database Setup (Optional - for a clean start)
+If you've run the app before and want to clear all previous data (reviews and analysis results), you can delete the SQLite database file. The app will recreate it automatically.
+rm content_moderation.db # Run this from your project directory
+
+
+🚀 Running the Application
+Ensure your Python environment is active.
+Navigate to your project directory (where app.py is located):
+cd /path/to/your/project
+# Example: cd ~/Documents/Portfolio Freelance/Content_Reviews
+
+
+Run the Streamlit app:
+streamlit run app.py
+
+
+Your web browser should automatically open to http://localhost:8501, displaying the Electronic Repair Shop Review Moderator.
+📝 Usage
+Dashboard: See an overview of your review data.
+Upload Reviews:
+Click "📁 Upload Reviews" in the sidebar.
+Upload your reviews.csv file.
+Click "Save Reviews" to import them into the database.
+Analyze Reviews:
+Click "🔍 Analyze Reviews" in the sidebar.
+Click "Analyze New Reviews" to process all reviews that haven't been analyzed yet using the Gemini API.
+Flagged Reviews:
+Click "🚩 Flagged Reviews" to see reviews identified as spam or inappropriate.
+Use the checkboxes to filter between spam and inappropriate flags.
+Statistics:
+Click "📈 Statistics" to view various charts and insights about your review data, including sentiment distribution, rating distribution, and reviewer patterns.
+📁 Project Structure
+app.py: The main Streamlit application file, handling UI and navigation.
+config.py: Centralized configuration settings for API keys, thresholds, and app constants.
+content_moderator.py: Contains the core logic for AI-powered (Gemini) and rule-based sentiment analysis, spam, and inappropriate content detection.
+database.py: Manages all interactions with the SQLite database (creating tables, adding/retrieving reviews and analysis results).
+utils.py: Provides helper functions for CSV processing, data validation, and text formatting.
+reviews.csv: Example CSV file containing review data (you can replace this with your own).
+content_moderation.db: The SQLite database file (automatically created/managed by the app).
