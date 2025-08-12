@@ -1,0 +1,158 @@
+Loan Approval Prediction
+A machine learning project that predicts loan approval status using various classification algorithms and neural networks.
+Overview
+This project analyzes loan application data to predict whether a loan will be approved or denied. It implements multiple machine learning algorithms including Support Vector Machine (SVM), Decision Tree, Logistic Regression, K-Nearest Neighbors (KNN), and Artificial Neural Network (ANN) to compare their performance.
+Dataset
+The project uses the LoanApprovalPrediction.csv dataset with the following features:
+Categorical Features:
+
+Gender: Male/Female
+Married: Yes/No marital status
+Education: Graduate/Not Graduate
+Self_Employed: Yes/No employment status
+Property_Area: Urban/Semiurban/Rural
+Loan_Amount_Term: Loan term in months
+
+Numerical Features:
+
+Dependents: Number of dependents
+ApplicantIncome: Primary applicant's income
+CoapplicantIncome: Co-applicant's income
+LoanAmount: Loan amount requested
+
+Target Variable:
+
+Loan_Status: Y (Approved) / N (Denied)
+
+Dependencies
+pythonimport numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import warnings
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score, confusion_matrix
+import tensorflow as tf
+Data Preprocessing
+
+Missing Value Handling:
+
+Categorical columns: Filled with most frequent values
+Numerical columns: Filled with median values
+
+
+Feature Engineering:
+
+Removed Loan_ID and Gender columns
+Converted target variable: 'Y' → 1, 'N' → 0
+Applied Label Encoding to categorical variables
+
+
+Feature Scaling:
+
+Applied StandardScaler to normalize all features
+
+
+Train-Test Split:
+
+80% training data
+20% testing data
+Random state: 42 for reproducibility
+
+
+
+Machine Learning Models
+1. Support Vector Machine (SVM)
+
+Kernel: RBF (Radial Basis Function)
+Random state: 0
+
+2. Decision Tree Classifier
+
+Criterion: Entropy
+Random state: 0
+
+3. Logistic Regression
+
+Random state: 0
+
+4. K-Nearest Neighbors (KNN)
+
+Number of neighbors: 3
+
+5. Artificial Neural Network (ANN)
+
+Architecture:
+
+Input layer: 6 neurons (ReLU activation)
+Hidden layer: 3 neurons (ReLU activation)
+Output layer: 1 neuron (Sigmoid activation)
+
+
+Optimizer: Adam
+Loss function: Binary crossentropy
+Training: 50 epochs, batch size 32
+
+Usage
+
+Install required packages:
+bashpip install numpy pandas matplotlib seaborn scikit-learn tensorflow
+
+Ensure dataset is available:
+
+Place LoanApprovalPrediction.csv in the same directory as the script
+
+
+Run the script:
+bashpython Loan_Predictor.py
+
+
+Output
+The script provides:
+
+Accuracy scores for all models
+Confusion matrices for traditional ML models
+Test accuracy for the neural network model
+
+Model Evaluation
+Each model is evaluated using:
+
+Accuracy Score: Percentage of correct predictions
+Confusion Matrix: Detailed breakdown of true/false positives and negatives
+
+Features
+
+Comprehensive data exploration and visualization (commented sections available)
+Robust preprocessing pipeline
+Multiple algorithm comparison
+Both traditional ML and deep learning approaches
+Standardized evaluation metrics
+
+Data Visualization (Optional)
+The script includes commented visualization code for:
+
+Loan status distribution
+Categorical feature distributions (Gender, Married, Education, etc.)
+Correlation matrix heatmap
+
+Uncomment the relevant sections to generate visualizations.
+Notes
+
+The Gender column is dropped during preprocessing
+Missing values are handled automatically
+All features are standardized before training
+Random states are set for reproducible results
+
+Future Enhancements
+
+Hyperparameter tuning for better performance
+Cross-validation for robust evaluation
+Feature importance analysis
+ROC curve analysis
+Model ensemble techniques
