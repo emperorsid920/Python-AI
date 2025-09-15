@@ -173,11 +173,6 @@ I specialize in transforming complex business challenges into elegant, scalable 
 
 I have the expertise and proven track record to deliver results.
 
-### **Contact Information**
-- **Portfolio**: https://emperorsid920.github.io/PorfolioWeb/
-- **LinkedIn**: https://www.linkedin.com/in/sid-kraus-b73958145/
-- **Email**: sidkraus920@gmail.com
-- **GitHub**: https://github.com/emperorsid920/Python-AI
 
 ---
 
