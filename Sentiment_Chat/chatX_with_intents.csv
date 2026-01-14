@@ -1,0 +1,45 @@
+Index,Sentence,Top_Intent,Top_Confidence,All_Intents,All_Confidence_Scores
+1,"Noonish if you have
+Do you know how long it would be? I don't mind dropping it off during the week either",inquire_appointment_duration,0.999,"inquire_appointment_duration, check_availability, propose_time_slot, general_inquiry","0.999, 0.997, 0.991, 0.923"
+2,"In the morning, any time from 9:00-11:00. How long does it take?",general_inquiry,0.995,"general_inquiry, propose_time_slot","0.995, 0.991"
+3,"Sorry , how long is the time for the scheduled repair? Maybe we can do this Saturday, to around 9 in the morning?",inquire_appointment_duration,0.997,"inquire_appointment_duration, propose_time_slot, check_availability","0.997, 0.994, 0.958"
+4,Fri 2/2 how long will appt take?,inquire_appointment_duration,0.999,"inquire_appointment_duration, check_availability, propose_time_slot","0.999, 0.995, 0.983"
+5,9am? Can I wait for the car and if so how long should I expect to wait?,general_inquiry,0.991,"general_inquiry, check_availability, propose_time_slot","0.991, 0.987, 0.984"
+6,Can I schedule for 31st? How long is appointment? 11am?,check_availability,0.999,"check_availability, inquire_appointment_duration, general_inquiry, schedule_new_appointment, propose_time_slot","0.999, 0.999, 0.994, 0.991, 0.989"
+7,"OK, Sometime rhat week, mornings preferred after 9 AM. I plan to wait for it. How long does it take?",propose_time_slot,0.993,"propose_time_slot, general_inquiry, inquire_appointment_duration","0.993, 0.959, 0.957"
+8,"how long would it take?
+also, is it possible to schedule on a thursday or friday? or the weekend",inquire_appointment_duration,0.997,"inquire_appointment_duration, general_inquiry, propose_time_slot, check_availability, schedule_new_appointment","0.997, 0.997, 0.99, 0.989, 0.95"
+9,How long would it usually take? It also depends on the day. Do I have to come and check before/on Mar 13th?,inquire_appointment_duration,0.998,"inquire_appointment_duration, general_inquiry, check_availability, propose_time_slot","0.998, 0.995, 0.993, 0.979"
+10,Good morning. I will be out of town that week. We can schedule something for the week of March 18. How long should I plan for the appointment?,check_availability,0.997,"check_availability, inquire_appointment_duration, schedule_new_appointment, propose_time_slot, general_inquiry","0.997, 0.992, 0.991, 0.979, 0.801"
+11,"Hi Ana. I just picked my laptop yesterday from the repair shop. I am still under 5 year warranty at this time. The next available Sat I will have open will be 3/9, can we set up for that day? How long would this normally take?",general_inquiry,0.994,"general_inquiry, schedule_new_appointment, inquire_appointment_duration, check_availability, propose_time_slot","0.994, 0.993, 0.988, 0.98, 0.976"
+12,"Hi Ana, sorry for late response. I would like to have the schedule on Mar 20th. How long does it take to complete? If possible, please let me have it at 2pm.",schedule_new_appointment,0.997,"schedule_new_appointment, inquire_appointment_duration, check_availability, propose_time_slot, general_inquiry","0.997, 0.989, 0.979, 0.979, 0.834"
+13,Someone just called me from the shop and made an appointment over the phone for Friday at 7:15am. Thank you so much.,schedule_new_appointment,0.999,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment, check_availability","0.999, 0.996, 0.992, 0.712"
+14,I made an appointment on the 3rd Feb 2023,schedule_new_appointment,0.991,"schedule_new_appointment, confirm_existing_appointment, check_availability, propose_time_slot","0.991, 0.991, 0.966, 0.938"
+15,Ana this is Sharon I was in Danvers and made an appointment for Thursday February 1st at 11:30.,schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability","0.999, 0.992, 0.991, 0.954"
+16,"Thanks for the reminders Ana we appreciate it but us old folks do not enjoy to communicate as messaging so kindly stop or opt out of texting ok.
+I did call though and made an appointment for March 28 at 11:00. Enjoy your day !!!!!!! 
+Frank & Dot",schedule_new_appointment,0.994,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment","0.994, 0.984, 0.945"
+17,"I made an appointment through Annalise for March 7, 2024 at 9:30AM. Thank you!+",schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability","0.999, 0.994, 0.991, 0.884"
+18,Hi Ana. I was contacted this week from someone else and made an appointment for this Saturday.,schedule_new_appointment,0.999,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment, check_availability","0.999, 0.988, 0.918, 0.905"
+19,Hi Ana! I have only been using it for 10 months. Yesterday I made an appointment for 1/22 at 7 am.,schedule_new_appointment,0.996,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment, check_availability","0.996, 0.992, 0.88, 0.861"
+20,I made an appointment for next Friday at 12. Thank you,schedule_new_appointment,0.997,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability","0.997, 0.978, 0.977, 0.666"
+21,"Ana
+I made an online appointment for Tuesday January 30th at 11am. This was for 5 year service and fixing one recall problem. I never received an 
+email confirmation. Could you verify that I'm all set for this appointment? Also , how long will this maintenance and recall item take?
+Bob",schedule_new_appointment,0.999,"schedule_new_appointment, propose_time_slot, inquire_appointment_duration, general_inquiry, confirm_existing_appointment","0.999, 0.995, 0.982, 0.959, 0.72"
+22,I hi already made an appointment for today at 3:30 thank you,confirm_existing_appointment,0.999,"confirm_existing_appointment, propose_time_slot, check_availability","0.999, 0.862, 0.796"
+23,Hi! I already made an appointment for February 6th at 1 pm,confirm_existing_appointment,0.999,"confirm_existing_appointment, propose_time_slot, check_availability","0.999, 0.967, 0.863"
+24,"I made an appointment yesterday for Tuesday, January 30 at 5 PM. Would that be too late to get it done Tuesday afternoon? I just need hard 
+drive changed and monitor cleaned, and put additional RAM",propose_time_slot,0.997,"propose_time_slot, schedule_new_appointment, confirm_existing_appointment","0.997, 0.945, 0.733"
+25,11k+ and I have an appointment on Saturday,check_availability,0.928,"check_availability, propose_time_slot, schedule_new_appointment","0.928, 0.649, 0.595"
+26,"Ana, I have an appointment for March 23",check_availability,0.955,check_availability,0.955
+27,"8910, I have an appointment for service toward the end of April",check_availability,0.974,"check_availability, schedule_new_appointment","0.974, 0.82"
+28,"Ana, I have an appointment Thursday 25th 12:00 noon 
+Thanks",schedule_new_appointment,0.92,"schedule_new_appointment, check_availability, propose_time_slot","0.92, 0.893, 0.785"
+29,"Ana, I now have a Lenovo Thinkpad X1 that I purchased in Dec 2023.
+I called service department and have an appointment for first service on May 8th. 
+You can text me anytime you want to.
+Thank You",schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot","0.999, 0.997, 0.974"
+30,"Have booked an appointment online for Monday. 
+Thank you",schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability","0.999, 0.996, 0.912, 0.716"
+31,Hello Ana. I've already scheduled the 5 year service online for June 1st,confirm_existing_appointment,0.986,"confirm_existing_appointment, propose_time_slot","0.986, 0.963"
