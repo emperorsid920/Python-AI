@@ -1,0 +1,112 @@
+Data_Source,Original_Index,Conversation_Text,Final_Intent,Final_Confidence,All_Intents,Classification_Source,Local_Intent,Local_Confidence,API_Used
+chatX.csv,1,"Noonish if you have
+Do you know how long it would be? I don't mind dropping it off during the week either",inquire_appointment_duration,0.999,"inquire_appointment_duration, check_availability, propose_time_slot, general_inquiry",local_only,inquire_appointment_duration,0.999,False
+chatX.csv,2,"In the morning, any time from 9:00-11:00. How long does it take?",general_inquiry,0.995,"general_inquiry, propose_time_slot",local_only,general_inquiry,0.995,False
+chatX.csv,3,"Sorry , how long is the time for the scheduled repair? Maybe we can do this Saturday, to around 9 in the morning?",inquire_appointment_duration,0.997,"inquire_appointment_duration, propose_time_slot, check_availability",local_only,inquire_appointment_duration,0.997,False
+chatX.csv,4,Fri 2/2 how long will appt take?,inquire_appointment_duration,0.999,"inquire_appointment_duration, check_availability, propose_time_slot",local_only,inquire_appointment_duration,0.999,False
+chatX.csv,5,9am? Can I wait for the car and if so how long should I expect to wait?,general_inquiry,0.991,"general_inquiry, check_availability, propose_time_slot",local_only,general_inquiry,0.991,False
+chatX.csv,6,Can I schedule for 31st? How long is appointment? 11am?,check_availability,0.999,"check_availability, inquire_appointment_duration, general_inquiry, schedule_new_appointment, propose_time_slot",local_only,check_availability,0.999,False
+chatX.csv,7,"OK, Sometime rhat week, mornings preferred after 9 AM. I plan to wait for it. How long does it take?",propose_time_slot,0.993,"propose_time_slot, general_inquiry, inquire_appointment_duration",local_only,propose_time_slot,0.993,False
+chatX.csv,8,"how long would it take?
+also, is it possible to schedule on a thursday or friday? or the weekend",inquire_appointment_duration,0.997,"inquire_appointment_duration, general_inquiry, propose_time_slot, check_availability, schedule_new_appointment",local_only,inquire_appointment_duration,0.997,False
+chatX.csv,9,How long would it usually take? It also depends on the day. Do I have to come and check before/on Mar 13th?,inquire_appointment_duration,0.998,"inquire_appointment_duration, general_inquiry, check_availability, propose_time_slot",local_only,inquire_appointment_duration,0.998,False
+chatX.csv,10,Good morning. I will be out of town that week. We can schedule something for the week of March 18. How long should I plan for the appointment?,check_availability,0.997,"check_availability, inquire_appointment_duration, schedule_new_appointment, propose_time_slot, general_inquiry",local_only,check_availability,0.997,False
+chatX.csv,11,"Hi Ana. I just picked my laptop yesterday from the repair shop. I am still under 5 year warranty at this time. The next available Sat I will have open will be 3/9, can we set up for that day? How long would this normally take?",general_inquiry,0.994,"general_inquiry, schedule_new_appointment, inquire_appointment_duration, check_availability, propose_time_slot",local_only,general_inquiry,0.994,False
+chatX.csv,12,"Hi Ana, sorry for late response. I would like to have the schedule on Mar 20th. How long does it take to complete? If possible, please let me have it at 2pm.",schedule_new_appointment,0.997,"schedule_new_appointment, inquire_appointment_duration, check_availability, propose_time_slot, general_inquiry",local_only,schedule_new_appointment,0.997,False
+chatX.csv,13,Someone just called me from the shop and made an appointment over the phone for Friday at 7:15am. Thank you so much.,schedule_new_appointment,0.999,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment, check_availability",local_only,schedule_new_appointment,0.999,False
+chatX.csv,14,I made an appointment on the 3rd Feb 2023,schedule_new_appointment,0.991,"schedule_new_appointment, confirm_existing_appointment, check_availability, propose_time_slot",local_only,schedule_new_appointment,0.991,False
+chatX.csv,15,Ana this is Sharon I was in Danvers and made an appointment for Thursday February 1st at 11:30.,schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability",local_only,schedule_new_appointment,0.999,False
+chatX.csv,16,"Thanks for the reminders Ana we appreciate it but us old folks do not enjoy to communicate as messaging so kindly stop or opt out of texting ok.
+I did call though and made an appointment for March 28 at 11:00. Enjoy your day !!!!!!! 
+Frank & Dot",schedule_new_appointment,0.994,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment",local_only,schedule_new_appointment,0.994,False
+chatX.csv,17,"I made an appointment through Annalise for March 7, 2024 at 9:30AM. Thank you!+",schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability",local_only,schedule_new_appointment,0.999,False
+chatX.csv,18,Hi Ana. I was contacted this week from someone else and made an appointment for this Saturday.,schedule_new_appointment,0.999,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment, check_availability",local_only,schedule_new_appointment,0.999,False
+chatX.csv,19,Hi Ana! I have only been using it for 10 months. Yesterday I made an appointment for 1/22 at 7 am.,schedule_new_appointment,0.996,"schedule_new_appointment, propose_time_slot, confirm_existing_appointment, check_availability",local_only,schedule_new_appointment,0.996,False
+chatX.csv,20,I made an appointment for next Friday at 12. Thank you,schedule_new_appointment,0.997,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability",local_only,schedule_new_appointment,0.997,False
+chatX.csv,21,"Ana
+I made an online appointment for Tuesday January 30th at 11am. This was for 5 year service and fixing one recall problem. I never received an 
+email confirmation. Could you verify that I'm all set for this appointment? Also , how long will this maintenance and recall item take?
+Bob",schedule_new_appointment,0.999,"schedule_new_appointment, propose_time_slot, inquire_appointment_duration, general_inquiry, confirm_existing_appointment",local_only,schedule_new_appointment,0.999,False
+chatX.csv,22,I hi already made an appointment for today at 3:30 thank you,confirm_existing_appointment,0.999,"confirm_existing_appointment, propose_time_slot, check_availability",local_only,confirm_existing_appointment,0.999,False
+chatX.csv,23,Hi! I already made an appointment for February 6th at 1 pm,confirm_existing_appointment,0.999,"confirm_existing_appointment, propose_time_slot, check_availability",local_only,confirm_existing_appointment,0.999,False
+chatX.csv,24,"I made an appointment yesterday for Tuesday, January 30 at 5 PM. Would that be too late to get it done Tuesday afternoon? I just need hard 
+drive changed and monitor cleaned, and put additional RAM",propose_time_slot,0.997,"propose_time_slot, schedule_new_appointment, confirm_existing_appointment",local_only,propose_time_slot,0.997,False
+chatX.csv,25,11k+ and I have an appointment on Saturday,check_availability,0.928,"check_availability, propose_time_slot, schedule_new_appointment",local_only,check_availability,0.928,False
+chatX.csv,26,"Ana, I have an appointment for March 23",check_availability,0.955,check_availability,local_only,check_availability,0.955,False
+chatX.csv,27,"8910, I have an appointment for service toward the end of April",check_availability,0.974,"check_availability, schedule_new_appointment",local_only,check_availability,0.974,False
+chatX.csv,28,"Ana, I have an appointment Thursday 25th 12:00 noon 
+Thanks",schedule_new_appointment,0.92,"schedule_new_appointment, check_availability, propose_time_slot",local_only,schedule_new_appointment,0.92,False
+chatX.csv,29,"Ana, I now have a Lenovo Thinkpad X1 that I purchased in Dec 2023.
+I called service department and have an appointment for first service on May 8th. 
+You can text me anytime you want to.
+Thank You",schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot",local_only,schedule_new_appointment,0.999,False
+chatX.csv,30,"Have booked an appointment online for Monday. 
+Thank you",schedule_new_appointment,0.999,"schedule_new_appointment, confirm_existing_appointment, propose_time_slot, check_availability",local_only,schedule_new_appointment,0.999,False
+chatX.csv,31,Hello Ana. I've already scheduled the 5 year service online for June 1st,confirm_existing_appointment,0.986,"confirm_existing_appointment, propose_time_slot",local_only,confirm_existing_appointment,0.986,False
+screenshots,1,"2022 Ford Edge, Oil change
+wait
+11 feb afternoon
+1 pm",propose_time_slot,0.913,propose_time_slot,local_only,propose_time_slot,0.913,False
+screenshots,2,"2016 X5
+I need to bring the car in for an urgent issue that came up yesterday. There is an odd sound coming from the engine bay that is sounds rotational and ticking. It increases and decreases with the speed of the vehicle. Not audible when sitting parked with engine running.
+waiter is there any available on sat evening
+tomorrow
+afternoon",check_availability,0.999,"check_availability, general_inquiry, propose_time_slot",local_only,check_availability,0.999,False
+screenshots,3,"wait
+What hours are the service center open? Mondays don't work for me but mostly any other day in late afternoon or evening would be good
+fri",check_availability,0.999,"check_availability, general_inquiry, propose_time_slot",local_only,check_availability,0.999,False
+screenshots,4,"wait
+Is there anything next week?
+u have monday",check_availability,0.995,"check_availability, general_inquiry",local_only,check_availability,0.995,False
+screenshots,5,2009 toyota oil change today will drop off,general_inquiry,0.3,general_inquiry,api_verified,check_availability,0.234,True
+screenshots,6,"So I'm looking for maintenance
+I have a 2008 Ford Edge SEL
+drop off
+I would like to schedule pick up for today I seen that y'all have a coupon on your website I'm trying to download
+29 feb",schedule_new_appointment,0.998,"schedule_new_appointment, propose_time_slot",local_only,schedule_new_appointment,0.998,False
+screenshots,7,"2024 silverado. Its under warranty still and I would like to get the transmission looked at.
+waiter Any time available
+1st available
+ok
+can you please show me the slots",check_availability,0.986,"check_availability, schedule_new_appointment",local_only,check_availability,0.986,False
+screenshots,8,"Hi Carla, it's a 2020 Jeep Compass Trailhawk. Just need an oil change. :)
+waiter
+Do you have any mornings around 9:30? If not we can try something else.
+tomorrow
+ok",propose_time_slot,0.981,"propose_time_slot, check_availability",local_only,propose_time_slot,0.981,False
+screenshots,9,"Afternoon possibly
+10 feb afternoon",propose_time_slot,0.985,propose_time_slot,local_only,propose_time_slot,0.985,False
+screenshots,10,"drop off
+15 feb evening",general_inquiry,0.3,general_inquiry,api_verified,propose_time_slot,0.088,True
+screenshots,11,5 pm,propose_time_slot,0.923,propose_time_slot,local_only,propose_time_slot,0.923,False
+screenshots,12,"afternoon
+1pm",propose_time_slot,0.954,propose_time_slot,local_only,propose_time_slot,0.954,False
+screenshots,13,"afternoon
+4pm",propose_time_slot,0.933,propose_time_slot,local_only,propose_time_slot,0.933,False
+screenshots,14,evening,general_inquiry,0.3,general_inquiry,api_verified,propose_time_slot,0.681,True
+screenshots,15,"evening
+5 pm",general_inquiry,0.3,general_inquiry,api_verified,propose_time_slot,0.698,True
+screenshots,16,"Yes, I need for oil change
+rav4
+2020",general_inquiry,0.3,general_inquiry,api_verified,confirm_existing_appointment,0.041,True
+screenshots,17,"It's a 2019 escort
+I need an oil change and the tire pressure monitoring system needs reset it stopped working shortly after I got new tires
+I am happy to dropping it all earliest work as whoever your next available. I will keep it.
+Do you by any chance have working on Tuesday next week? My one time is Saturday to work is afternoon off on Monday.",check_availability,0.998,"check_availability, propose_time_slot, general_inquiry, inquire_appointment_duration",local_only,check_availability,0.998,False
+screenshots,18,"tomorrow
+12 pm
+1 pm
+1:30 pm
+6 pm
+i want in last slot of day on saturday",propose_time_slot,0.996,"propose_time_slot, check_availability, schedule_new_appointment, confirm_existing_appointment, inquire_appointment_duration",local_only,propose_time_slot,0.996,False
+screenshots,19,"2020 Nissan Kicks, oil change
+waiter I could do tomorrow morning, Sunday at any time, or Wednesday morning
+do you have anything on wednesday
+waht you have on tomorrow",check_availability,0.997,"check_availability, propose_time_slot, general_inquiry",local_only,check_availability,0.997,False
+screenshots,20,"yes I do you have any slots between 1pm - 3pm
+next 11
+12pm
+1pm
+yes
+10:30 am great!
+dearly like when should call for service your 2017 M4, or drop it off and pick it up later?",check_availability,0.999,"check_availability, inquire_appointment_duration, propose_time_slot, general_inquiry",local_only,check_availability,0.999,False
